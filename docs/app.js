@@ -77,7 +77,7 @@ function renderDay(day) {
   card.querySelector('.wind-line').textContent = `Vitr z ${direction ?? '?'} deg - ${fmt(global.mean_wind_ms)}/${fmt(global.max_gust_ms)} m/s - stabilita ${global.stability_1to5 ?? '?'}/5`;
   card.querySelector('.verdict').textContent = day.verdict || 'Bez slovniho verdiktu.';
   card.querySelector('.thermal').textContent = `${Math.round(thermal.score ?? 0)}/100`;
-  card.querySelector('.ceiling').textContent = `${Math.round(ceiling.score ?? 0)}/100 - ${fmtMeters(ceiling.estimated_ceiling_m)}`;
+  card.querySelector('.ceiling').textContent = `${Math.round(ceiling.score ?? 0)}/100 · ${fmtMeters(ceiling.estimated_ceiling_m)}`;
   card.querySelector('.storm').textContent = storm.risk || '?';
   card.querySelector('.stability').textContent = `${global.stability_1to5 ?? '?'} / 5`;
 
