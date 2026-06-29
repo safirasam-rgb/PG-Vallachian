@@ -185,9 +185,23 @@ def storm_note(day: DaySlice) -> dict[str, Any]:
 
 def estimate_ceiling_potential(thermal: dict[str, Any], day: DaySlice) -> dict[str, Any]:
     low_cloud = safe_mean(day.values.get("cloud_cover_low", []))
+    precip_probability = thermal.get("precip_probability_max_pct")
+    radiation = thermal.get("max_shortwave_wm2")
+    temp_max = thermal.get("max_temp_c")
     score = thermal["score"]
     if low_cloud is not None and low_cloud > 60:
         score -= 20
+
+    estimated_ceiling_m = 800 + score * 20
+    if temp_max is not None and temp_max > 20:
+        estimated_ceiling_m += min(300, (temp_max - 20) * 35)
+    if radiation is not None and radiation > 600:
+        estimated_ceiling_m += 200
+    if low_cloud is not None and low_cloud > 60:
+        estimated_ceiling_m -= 300
+    if precip_probability is not None and precip_probability > 50:
+        estimated_ceiling_m -= 200
+    estimated_ceiling_m = int(round(clamp(estimated_ceiling_m, 500, 3200) / 100) * 100)
 
     label = "slabý"
     if score >= 70:
@@ -198,6 +212,7 @@ def estimate_ceiling_potential(thermal: dict[str, Any], day: DaySlice) -> dict[s
     return {
         "score": round(clamp(score), 1),
         "label": label,
+        "estimated_ceiling_m": estimated_ceiling_m,
         "confidence": "nízká až střední",
         "note": "Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift."
     }
