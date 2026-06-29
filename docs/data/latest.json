@@ -1,0 +1,393 @@
+{
+  "generated_at": "2026-06-29T10:54:14+00:00",
+  "today_label": "pondělí 29. 6. 2026",
+  "location": {
+    "id": "valassko-vsetin",
+    "name": "Valašsko / Vsetín",
+    "latitude": 49.3387,
+    "longitude": 17.9962
+  },
+  "days": [
+    {
+      "schema_version": "0.1",
+      "issued_at": "2026-06-29T10:54:14+00:00",
+      "target_date": "2026-06-29",
+      "location": {
+        "id": "valassko-vsetin",
+        "name": "Valašsko / Vsetín",
+        "latitude": 49.3387,
+        "longitude": 17.9962,
+        "elevation_m": 342
+      },
+      "provider": {
+        "provider": "open-meteo",
+        "warnings": [],
+        "requested_pressure_levels": false
+      },
+      "forecast_window": {
+        "start_hour": 10,
+        "end_hour": 17,
+        "sample_count": 8,
+        "times": [
+          "2026-06-29T10:00",
+          "2026-06-29T11:00",
+          "2026-06-29T12:00",
+          "2026-06-29T13:00",
+          "2026-06-29T14:00",
+          "2026-06-29T15:00",
+          "2026-06-29T16:00",
+          "2026-06-29T17:00"
+        ]
+      },
+      "global": {
+        "direction_deg": 178.0,
+        "mean_wind_ms": 2.1,
+        "max_gust_ms": 8.9,
+        "stability_1to5": 2
+      },
+      "sector_scores": [
+        {
+          "sector": "J",
+          "center_deg": 180,
+          "score": 94.0,
+          "direction_match": 100.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JV",
+          "center_deg": 135,
+          "score": 59.8,
+          "direction_match": 47.4,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JZ",
+          "center_deg": 225,
+          "score": 53.9,
+          "direction_match": 38.3,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "S",
+          "center_deg": 0,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SV",
+          "center_deg": 45,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "V",
+          "center_deg": 90,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "Z",
+          "center_deg": 270,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SZ",
+          "center_deg": 315,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        }
+      ],
+      "scores": {
+        "vli": 93.4,
+        "wind_component": 88.0,
+        "thermal": {
+          "score": 100.0,
+          "max_temp_c": 37.2,
+          "max_shortwave_wm2": 737.0,
+          "mean_cloud_cover_pct": 42.4,
+          "precip_sum_mm": 0.0,
+          "precip_probability_max_pct": 3
+        },
+        "ceiling": {
+          "score": 100.0,
+          "label": "dobrý",
+          "confidence": "nízká až střední",
+          "note": "Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift."
+        },
+        "cloud_precip_component": 100.0
+      },
+      "risks": {
+        "storm": {
+          "risk": "nízké",
+          "precip_probability_max_pct": 3,
+          "showers_sum_mm": 0.0,
+          "rain_sum_mm": 0.0,
+          "policy": "Bouřky nejsou automatický stop. Jsou samostatná riziková poznámka."
+        }
+      },
+      "verdict": "Velmi dobrý letový den. Nejlepší směrový sektor: J. Termika může fungovat, ale start bude hodně záviset na lokálním nádechu svahu.",
+      "web_label": "dnes",
+      "date_label": "pondělí 29. 6. 2026"
+    },
+    {
+      "schema_version": "0.1",
+      "issued_at": "2026-06-29T10:54:14+00:00",
+      "target_date": "2026-06-30",
+      "location": {
+        "id": "valassko-vsetin",
+        "name": "Valašsko / Vsetín",
+        "latitude": 49.3387,
+        "longitude": 17.9962,
+        "elevation_m": 342
+      },
+      "provider": {
+        "provider": "open-meteo",
+        "warnings": [],
+        "requested_pressure_levels": false
+      },
+      "forecast_window": {
+        "start_hour": 10,
+        "end_hour": 17,
+        "sample_count": 8,
+        "times": [
+          "2026-06-30T10:00",
+          "2026-06-30T11:00",
+          "2026-06-30T12:00",
+          "2026-06-30T13:00",
+          "2026-06-30T14:00",
+          "2026-06-30T15:00",
+          "2026-06-30T16:00",
+          "2026-06-30T17:00"
+        ]
+      },
+      "global": {
+        "direction_deg": 359.0,
+        "mean_wind_ms": 3.4,
+        "max_gust_ms": 8.5,
+        "stability_1to5": 2
+      },
+      "sector_scores": [
+        {
+          "sector": "S",
+          "center_deg": 0,
+          "score": 94.0,
+          "direction_match": 100.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SZ",
+          "center_deg": 315,
+          "score": 58.3,
+          "direction_match": 45.2,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SV",
+          "center_deg": 45,
+          "score": 55.4,
+          "direction_match": 40.6,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "V",
+          "center_deg": 90,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JV",
+          "center_deg": 135,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "J",
+          "center_deg": 180,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JZ",
+          "center_deg": 225,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "Z",
+          "center_deg": 270,
+          "score": 29.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        }
+      ],
+      "scores": {
+        "vli": 84.4,
+        "wind_component": 88.0,
+        "thermal": {
+          "score": 91.0,
+          "max_temp_c": 33.0,
+          "max_shortwave_wm2": 860.0,
+          "mean_cloud_cover_pct": 0,
+          "precip_sum_mm": 0.0,
+          "precip_probability_max_pct": 8
+        },
+        "ceiling": {
+          "score": 91.0,
+          "label": "dobrý",
+          "confidence": "nízká až střední",
+          "note": "Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift."
+        },
+        "cloud_precip_component": 70.0
+      },
+      "risks": {
+        "storm": {
+          "risk": "nízké",
+          "precip_probability_max_pct": 8,
+          "showers_sum_mm": 0.0,
+          "rain_sum_mm": 0.0,
+          "policy": "Bouřky nejsou automatický stop. Jsou samostatná riziková poznámka."
+        }
+      },
+      "verdict": "Velmi dobrý letový den. Nejlepší směrový sektor: S. Termický potenciál je dobrý.",
+      "web_label": "zítra",
+      "date_label": "úterý 30. 6. 2026"
+    },
+    {
+      "schema_version": "0.1",
+      "issued_at": "2026-06-29T10:54:14+00:00",
+      "target_date": "2026-07-01",
+      "location": {
+        "id": "valassko-vsetin",
+        "name": "Valašsko / Vsetín",
+        "latitude": 49.3387,
+        "longitude": 17.9962,
+        "elevation_m": 342
+      },
+      "provider": {
+        "provider": "open-meteo",
+        "warnings": [],
+        "requested_pressure_levels": false
+      },
+      "forecast_window": {
+        "start_hour": 10,
+        "end_hour": 17,
+        "sample_count": 8,
+        "times": [
+          "2026-07-01T10:00",
+          "2026-07-01T11:00",
+          "2026-07-01T12:00",
+          "2026-07-01T13:00",
+          "2026-07-01T14:00",
+          "2026-07-01T15:00",
+          "2026-07-01T16:00",
+          "2026-07-01T17:00"
+        ]
+      },
+      "global": {
+        "direction_deg": 287.0,
+        "mean_wind_ms": 2.0,
+        "max_gust_ms": 11.6,
+        "stability_1to5": 1
+      },
+      "sector_scores": [
+        {
+          "sector": "Z",
+          "center_deg": 270,
+          "score": 92.0,
+          "direction_match": 100.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SZ",
+          "center_deg": 315,
+          "score": 86.1,
+          "direction_match": 91.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "S",
+          "center_deg": 0,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "SV",
+          "center_deg": 45,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "V",
+          "center_deg": 90,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JV",
+          "center_deg": 135,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "J",
+          "center_deg": 180,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        },
+        {
+          "sector": "JZ",
+          "center_deg": 225,
+          "score": 27.0,
+          "direction_match": 0.0,
+          "wind_strength_score": 100.0
+        }
+      ],
+      "scores": {
+        "vli": 35.3,
+        "wind_component": 84.0,
+        "thermal": {
+          "score": 30.8,
+          "max_temp_c": 32.2,
+          "max_shortwave_wm2": 797.0,
+          "mean_cloud_cover_pct": 78.8,
+          "precip_sum_mm": 8.4,
+          "precip_probability_max_pct": 98
+        },
+        "ceiling": {
+          "score": 30.8,
+          "label": "slabý",
+          "confidence": "nízká až střední",
+          "note": "Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift."
+        },
+        "cloud_precip_component": 24.6
+      },
+      "risks": {
+        "storm": {
+          "risk": "vyšší",
+          "precip_probability_max_pct": 98,
+          "showers_sum_mm": 8.4,
+          "rain_sum_mm": 0.0,
+          "policy": "Bouřky nejsou automatický stop. Jsou samostatná riziková poznámka."
+        }
+      },
+      "verdict": "Slabý nebo problémový den. Nejlepší směrový sektor: Z. Termický potenciál je slabý. Bouřkové/přeháňkové riziko: vyšší; sledovat vývoj, radar a únikové varianty.",
+      "web_label": "pozítří",
+      "date_label": "středa 1. 7. 2026"
+    }
+  ]
+}
