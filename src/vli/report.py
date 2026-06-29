@@ -69,6 +69,7 @@ def render_markdown(result: dict[str, Any]) -> str:
     lines.append("")
     lines.append(
         f"- Skóre: **{ceiling['score']:.0f}/100**\n"
+        f"- Očekávaný dostup: **{ceiling.get('estimated_ceiling_m', '?')} m**\n"
         f"- Slovně: **{ceiling['label']}**\n"
         f"- Jistota: **{ceiling['confidence']}**\n"
         f"- Poznámka: {ceiling['note']}"
