@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "issued_at": "2026-06-29T10:54:14+00:00",
+  "issued_at": "2026-06-29T12:22:59+00:00",
   "target_date": "2026-07-01",
   "location": {
     "id": "valassko-vsetin",
@@ -107,6 +107,7 @@
     "ceiling": {
       "score": 30.8,
       "label": "slabý",
+      "estimated_ceiling_m": 1700,
       "confidence": "nízká až střední",
       "note": "Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift."
     },

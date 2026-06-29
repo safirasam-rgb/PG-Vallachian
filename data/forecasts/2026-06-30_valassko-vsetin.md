@@ -34,6 +34,7 @@ Velmi dobrý letový den. Nejlepší směrový sektor: S. Termický potenciál j
 ## Dostup / použitelné stoupání
 
 - Skóre: **91/100**
+- Očekávaný dostup: **3100 m**
 - Slovně: **dobrý**
 - Jistota: **nízká až střední**
 - Poznámka: Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift.

@@ -34,6 +34,7 @@ Velmi dobrý letový den. Nejlepší směrový sektor: J. Termika může fungova
 ## Dostup / použitelné stoupání
 
 - Skóre: **100/100**
+- Očekávaný dostup: **3200 m**
 - Slovně: **dobrý**
 - Jistota: **nízká až střední**
 - Poznámka: Proxy odhad. Přesný dostup potřebuje sounding / thermal tops / usable lift.
