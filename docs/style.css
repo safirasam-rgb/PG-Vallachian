@@ -23,7 +23,7 @@ body {
     var(--bg);
   color: var(--text);
 }
-.page { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 56px; }
+.page { width: min(1320px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 56px; }
 .hero {
   display: flex;
   justify-content: space-between;
@@ -108,11 +108,11 @@ h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 3.4rem); line-height: 1; }
 }
 .center-dot { position: absolute; inset: 68px; border-radius: 999px; background: white; }
 .wind-line { margin: 10px 0 0; color: var(--muted); font-size: .9rem; }
-.summary .verdict { margin: 0 0 14px; color: #dbeafe; line-height: 1.45; }
-.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.metrics div { padding: 10px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+.summary .verdict { margin: 0; color: #dbeafe; line-height: 1.45; }
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+.metrics div { min-width: 0; padding: 10px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
 .metrics span { display: block; color: var(--muted); font-size: .76rem; margin-bottom: 4px; }
-.metrics strong { font-size: 1rem; overflow-wrap: anywhere; }
+.metrics strong { display: block; font-size: .96rem; line-height: 1.25; overflow-wrap: normal; word-break: normal; }
 .sectors { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 18px; }
 .sector-row { display: grid; grid-template-columns: 34px 1fr 58px; align-items: center; gap: 10px; font-size: .9rem; }
 .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
@@ -123,11 +123,13 @@ h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 3.4rem); line-height: 1; }
 @media (max-width: 980px) {
   .cards { grid-template-columns: 1fr; }
   .hero { align-items: flex-start; }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  .page { width: min(100% - 20px, 1180px); padding-top: 16px; }
+  .page { width: min(100% - 20px, 1320px); padding-top: 16px; }
   .hero { flex-direction: column; padding: 22px; }
   .main-grid { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: 1fr 1fr; }
   .wind-rose { margin: 0 auto; }
   .wind-line { text-align: center; }
 }
