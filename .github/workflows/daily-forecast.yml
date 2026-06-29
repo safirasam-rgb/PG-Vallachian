@@ -2,7 +2,7 @@ name: Daily PG forecast
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 5 * * *"
+    - cron: "0 5 * * *"
 permissions:
   contents: write
   pages: write
