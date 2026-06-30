@@ -20,12 +20,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -54,20 +54,20 @@ jobs:
 
           git commit -m "Update daily PG forecast"
 
-          # Jednoduchá retry logika
+          # Retry logika s verbose outputem
           for attempt in {1..5}; do
-            echo "Push attempt $attempt/5"
-            git fetch origin main
-            git rebase origin/main
+            echo "=== Push attempt $attempt/5 ==="
+            git fetch origin main || { echo "Fetch failed"; continue; }
+            git rebase origin/main || { echo "Rebase failed"; git rebase --abort; continue; }
             if git push origin main; then
-              echo "Successfully pushed"
+              echo "✓ Successfully pushed"
               exit 0
             fi
             if [ $attempt -lt 5 ]; then
-              echo "Attempt $attempt failed, waiting 10 seconds..."
+              echo "✗ Attempt $attempt failed, waiting 10 seconds..."
               sleep 10
             fi
           done
 
-          echo "Failed to push after 5 attempts"
+          echo "✗ Failed to push after 5 attempts"
           exit 1
