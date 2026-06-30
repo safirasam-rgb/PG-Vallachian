@@ -54,5 +54,18 @@ jobs:
 
           git commit -m "Update daily PG forecast"
 
-          git pull --rebase origin main
-          git push origin main
+          # Retry logika pro push - řeší problémy s race conditions
+          for attempt in {1..3}; do
+            echo "Push attempt $attempt/3"
+            if git pull --rebase origin main && git push origin main; then
+              echo "Successfully pushed"
+              exit 0
+            fi
+            if [ $attempt -lt 3 ]; then
+              echo "Attempt $attempt failed, waiting 5 seconds before retry..."
+              sleep 5
+            fi
+          done
+          
+          echo "Failed to push after 3 attempts"
+          exit 1
