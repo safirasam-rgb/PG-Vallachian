@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,34 +41,33 @@ jobs:
       - name: Build static website data
         run: python scripts/build_web.py --config config/locations.json --days 3
 
-      - name: Commit and push generated forecast data
+      - name: Commit generated data and website
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
+          # Determine current branch name
+          BRANCH=${GITHUB_REF##*/}
+          if [[ -n "$(git status --porcelain data/forecasts data/validation docs/data)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/forecasts docs/data
+            if [[ -d data/validation ]]; then
+              git add data/validation
+            fi
+            # Commit if there are staged changes
+            if git diff --cached --quiet; then
+              echo "No staged changes to commit."
+            else
+              git commit -m "Add daily PG forecast data and website payload"
+            fi
 
-          git add data/forecasts data/validation docs/data
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
+            # Ensure we have the latest remote and rebase to avoid non-fast-forward pushes
+            git fetch origin "$BRANCH"
+            # Try a fast push; if rejected, rebase onto remote then push again
+            if ! git push origin "$BRANCH"; then
+              echo "Push failed; attempting to rebase on origin/$BRANCH and push again."
+              git rebase "origin/$BRANCH" || (git rebase --abort && echo "Rebase failed; aborting commit step." && exit 1)
+              git push origin "$BRANCH"
+            fi
+          else
+            echo "No generated data changes to commit."
           fi
-
-          git commit -m "Update daily PG forecast"
-
-          # Retry logika s verbose outputem
-          for attempt in {1..5}; do
-            echo "=== Push attempt $attempt/5 ==="
-            git fetch origin main || { echo "Fetch failed"; continue; }
-            git rebase origin/main || { echo "Rebase failed"; git rebase --abort; continue; }
-            if git push origin main; then
-              echo "✓ Successfully pushed"
-              exit 0
-            fi
-            if [ $attempt -lt 5 ]; then
-              echo "✗ Attempt $attempt failed, waiting 10 seconds..."
-              sleep 10
-            fi
-          done
-
-          echo "✗ Failed to push after 5 attempts"
-          exit 1
