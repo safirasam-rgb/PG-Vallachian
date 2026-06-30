@@ -39,35 +39,5 @@ jobs:
         run: python scripts/run_daily_forecast.py --config config/locations.json --days 3
 
       - name: Build static website data
-        run: python scripts/build_web.py --config config/locations.json --days 3
-
-      - name: Commit generated data and website
-        run: |
-          set -euo pipefail
-          # Determine current branch name
-          BRANCH=${GITHUB_REF##*/}
-          if [[ -n "$(git status --porcelain data/forecasts data/validation docs/data)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/forecasts docs/data
-            if [[ -d data/validation ]]; then
-              git add data/validation
-            fi
-            # Commit if there are staged changes
-            if git diff --cached --quiet; then
-              echo "No staged changes to commit."
-            else
-              git commit -m "Add daily PG forecast data and website payload"
-            fi
-
-            # Ensure we have the latest remote and rebase to avoid non-fast-forward pushes
-            git fetch origin "$BRANCH"
-            # Try a fast push; if rejected, rebase onto remote then push again
-            if ! git push origin "$BRANCH"; then
-              echo "Push failed; attempting to rebase on origin/$BRANCH and push again."
-              git rebase "origin/$BRANCH" || (git rebase --abort && echo "Rebase failed; aborting commit step." && exit 1)
-              git push origin "$BRANCH"
-            fi
-          else
-            echo "No generated data changes to commit."
-          fi
+        run: python scripts/build_web.py --config config/locations.json --*
+
