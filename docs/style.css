@@ -117,6 +117,27 @@ h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 3.4rem); line-height: 1; }
 .sector-row { display: grid; grid-template-columns: 34px 1fr 58px; align-items: center; gap: 10px; font-size: .9rem; }
 .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
 .fill { height: 100%; width: var(--w); border-radius: inherit; background: currentColor; }
+.takeoffs { margin-top: 18px; }
+.takeoffs h3 { margin: 0 0 10px; color: var(--text); font-size: .95rem; }
+.takeoff-list { display: grid; gap: 8px; }
+.takeoff-row {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  font-size: .88rem;
+}
+.takeoff-row strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.takeoff-row span, .takeoff-row small { color: var(--muted); white-space: nowrap; }
+.takeoff-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--mid); box-shadow: 0 0 14px currentColor; }
+.takeoff-row.green .takeoff-dot { background: var(--good); color: var(--good); }
+.takeoff-row.yellow .takeoff-dot { background: var(--mid); color: var(--mid); }
+.takeoff-row.red .takeoff-dot { background: var(--bad); color: var(--bad); }
 .explain { margin-top: 22px; padding: 22px; border-radius: 24px; background: rgba(17,26,35,.70); border: 1px solid var(--border); color: var(--muted); }
 .explain h2 { margin: 0 0 8px; color: var(--text); }
 .explain p { margin: 0; line-height: 1.55; }
