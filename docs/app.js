@@ -56,6 +56,26 @@ function renderSectors(card, day) {
   }
 }
 
+function renderTakeoffs(card, day) {
+  const wrap = card.querySelector('.takeoffs');
+  const list = card.querySelector('.takeoff-list');
+  const takeoffs = day.takeoff_recommendations || [];
+  list.innerHTML = '';
+
+  if (!takeoffs.length) {
+    wrap.hidden = true;
+    return;
+  }
+
+  wrap.hidden = false;
+  for (const takeoff of takeoffs.slice(0, 8)) {
+    const row = document.createElement('div');
+    row.className = `takeoff-row ${takeoff.quality || 'yellow'}`;
+    row.innerHTML = `<span class="takeoff-dot"></span><strong>${takeoff.name}</strong><span>${takeoff.distance_km} km</span><small>${takeoff.wind_from_deg}°-${takeoff.wind_to_deg}°</small>`;
+    list.appendChild(row);
+  }
+}
+
 function renderDay(day) {
   const template = document.getElementById('day-template');
   const card = template.content.firstElementChild.cloneNode(true);
@@ -82,6 +102,7 @@ function renderDay(day) {
   card.querySelector('.stability').textContent = `${global.stability_1to5 ?? '?'} / 5`;
 
   renderSectors(card, day);
+  renderTakeoffs(card, day);
   return card;
 }
 
