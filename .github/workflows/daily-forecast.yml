@@ -3,27 +3,28 @@ name: Daily PG forecast
 on:
   workflow_dispatch:
   schedule:
-    # 05:00 UTC = 07:00 v ČR během letního času
-    # V zimním čase to poběží v 06:00 českého času.
+    # 05:00 UTC = 07:00 in Czechia during daylight saving time.
     - cron: "0 5 * * *"
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: daily-pg-forecast
+  group: github-pages
   cancel-in-progress: true
 
 jobs:
   forecast:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,9 +36,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run daily forecast for web
+      - name: Download fresh forecast
         run: python scripts/run_daily_forecast.py --config config/locations.json --days 3
 
-      - name: Build static website data
-        run: python scripts/build_web.py --config config/locations.json --*
-
+      - name: Build website data
+        run: python scripts/build_web.py --config config/locations.json --days 3
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
