@@ -1,66 +1,40 @@
-# Valašský PG index
+# Valassky PG index
 
-GitHub-ready projekt pro ranní paraglidingový report pro Valašsko.
+Ranni paraglidingovy report pro Valassko.
 
-Umí:
+Umi:
 
-- stáhnout předpověď z Open-Meteo,
-- vygenerovat PG index pro dnes, zítra a pozítří,
-- uložit JSON a Markdown reporty,
-- vygenerovat webová data pro GitHub Pages,
-- další den validovat, jestli základní meteorologické veličiny seděly.
+- stahnout cerstvou predpoved z Open-Meteo,
+- vygenerovat PG index pro dnes, zitra a pozitri,
+- vytvorit webova data pro GitHub Pages,
+- kazde rano automaticky nasadit aktualni web.
 
-## Lokální spuštění
+## Manualni spusteni workflow
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate    # Linux/Mac
-pip install -r requirements.txt
-python scripts/run_daily_forecast.py --config config/locations.json --days 3
-python scripts/build_web.py --config config/locations.json --days 3
-```
-
-Pak otevři:
+V GitHubu otevri:
 
 ```text
-docs/index.html
+Actions -> Daily PG forecast -> Run workflow
 ```
 
-## GitHub Actions
-
-V GitHubu otevři:
+Workflow stahne nova data, vytvori:
 
 ```text
-Actions → Daily PG forecast → Run workflow
-```
-
-Workflow vygeneruje:
-
-```text
-data/forecasts/*.json
-data/forecasts/*.md
 docs/data/latest.json
 ```
 
-## GitHub Pages
+a nasadi obsah slozky `docs` na GitHub Pages.
 
-Nastav:
+## Automaticka obnova
 
-```text
-Settings → Pages → Build and deployment
-Source: Deploy from a branch
-Branch: main
-Folder: /docs
-Save
-```
-
-Výsledná adresa bude přibližně:
+Workflow bezi denne v:
 
 ```text
-https://TVUJ-UCET.github.io/TVUJ-REPOZITAR/
+05:00 UTC
 ```
 
-## Omezení
+To odpovida 07:00 v Cesku behem letniho casu.
 
-Toto není bezpečnostní autorita. Je to lokální index pro třídění dnů. Bouřky nejsou automatický stop; jsou samostatná riziková poznámka.
+## Omezeni
+
+Toto neni bezpecnostni autorita. Je to lokalni index pro trideni dnu. Bourky nejsou automaticky stop; jsou samostatna rizikova poznamka.
